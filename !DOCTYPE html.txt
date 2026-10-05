@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Офіційний сайт 8-Б класу</title>
+    <style>
+        /* === ЗМІННІ КОЛЬОРІВ (СВІТЛА ТЕМА) === */
+        :root {
+            --bg-color: #f4f7fb;
+            --card-bg: #ffffff;
+            --text-main: #2c3e50;
+            --text-muted: #6c757d;
+            --primary: #4a90e2;
+            --primary-hover: #357abd;
+            --accent: #ff6b6b;
+            --border-color: #e2e8f0;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            --radius: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4a90e2, #67b26f);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 20px rgba(74, 144, 226, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: -20px;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+        }
+
+        nav a {
+            background: var(--card-bg);
+            color: var(--text-main);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        nav a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 10px;
+        }
+
+        /* === ІНФО БЛОК === */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+
+        .info-card {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-card h3 {
+            font-size: 2rem;
+            color: var(--primary);
+        }
+
+        /* === РОЗКЛАД === */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .schedule-table th, .schedule-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .schedule-table th {
+            background-color: #f1f5f9;
+            color: var(--text-main);
+        }
+
+        .schedule-table tr:hover {
+            background-color: #f8fafc;
+        }
+
+        /* === СПИСОК КЛАСУ (18 ДІТЕЙ) === */
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary);
+        }
+
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .student-card {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        .student-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .student-avatar {
+            width: 45px;
+            height: 45px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* === ОГОЛОШЕННЯ === */
+        .news-item {
+            padding: 15px;
+            background: #f8fafc;
+            border-left: 4px solid var(--primary);
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        .news-item .date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            nav { flex-wrap: wrap; }
+            .students-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайту -->
+    <header>
+        <h1>Вітаємо на сайті 8-Б класу! 👋</h1>
+        <p>Дружній, активний та найновіший 8-Б клас</p>
+    </header>
+
+    <!-- Навігація -->
+    <nav>
+        <a href="#about">Про клас</a>
+        <a href="#schedule">Розклад</a>
+        <a href="#students">Учні</a>
+        <a href="#news">Новини</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Розділ Про клас -->
+        <section id="about">
+            <h2>Про наш клас</h2>
+            <div class="info-cards">
+                <div class="info-card">
+                    <h3>18</h3>
+                    <p>Учнів у класі</p>
+                </div>
+                <div class="info-card">
+                    <h3 style="font-size: 1.3rem; margin-top: 8px;">Кристина Дмитрівна</h3>
+                    <p>Класний керівник</p>
+                </div>
+                <div class="info-card">
+                    <h3>8-Б</h3>
+                    <p>Наш клас</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Розділ Розклад уроків -->
+        <
